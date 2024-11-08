@@ -1,0 +1,55 @@
+
+.box {
+  margin: 1rem;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  font-family: Arial, sans-serif;
+}
+
+/* Style mat-form-field for accessibility and readability */
+mat-form-field {
+  width: 100%;
+}
+
+/* Adjust button styles */
+button[mat-button] {
+  background-color: #00ff48;
+  font-weight: bold;
+  border-radius: 4px;
+  padding: 8px 16px;
+  cursor: pointer;
+  margin-right: 8px;
+  transition: background-color 0.3s ease;
+}
+
+button[mat-button]:hover {
+  background-color: #ffb700;
+}
+
+button[mat-button]:focus {
+  outline: 3px solid #ffbf47;
+  outline-offset: 2px;
+}
+
+button[disabled] {
+  background-color: #ddd;
+  cursor: not-allowed;
+}
+
+input:focus,
+textarea:focus,
+mat-form-field .mat-form-field-underline:focus-within {
+  outline: 2px solid #007bff;
+  outline-offset: 2px;
+}
+
+mat-error {
+  font-size: 0.85rem;
+  color: #d9534f;
+  margin-top: 4px;
+  display: block;
+}

@@ -1,0 +1,53 @@
+<div role="main">
+  <h1>Task List</h1>
+  <div>
+    <table role="grid" aria-label="Task list table">
+      <thead>
+      <tr role="row">
+        <th scope="col">Title</th>
+        <th scope="col">Description</th>
+        <th scope="col">Status</th>
+        <th scope="col" aria-hidden="true"></th>
+        <th scope="col" aria-hidden="true"></th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr role="status" class="empty-state" *ngIf="!items.length">
+        <td role="gridcell" colspan="5">No tasks available. Click the Add Task button to create a new task.</td>
+      </tr>
+      <tr role="row" *ngFor="let item of items; let i = index" [attr.aria-checked]="item.isCompleted"
+          [attr.aria-rowindex]="i + 1"
+          [attr.tabindex]="0">
+        <td role="gridcell">{{ item.title }}</td>
+        <td role="gridcell">{{ item.description }}</td>
+        <td role="gridcell" [attr.aria-label]="item.isCompleted ? 'Completed' : 'Not completed'">{{ item.isCompleted ? '✔️ Completed' : '❌ Not completed' }}</td>
+        <td>
+          <button [attr.aria-label]="item.isCompleted ? 'Mark as not completed' : 'Mark as completed'" (click)="toggleItemCompletion(i)">
+            <span>{{ item.isCompleted ? 'Mark as not completed' : 'Mark as completed' }}</span>
+          </button>
+        </td>
+        <td role="gridcell">
+          <button (click)="removeItem(i)" aria-label="Remove item">
+            <span>
+              <mat-icon fontIcon="delete" aria-hidden="true"></mat-icon>
+            </span>
+            <span>
+              Remove
+            </span>
+          </button>
+        </td>
+      </tr>
+      <tr role="row">
+        <td role="gridcell" colspan="5">
+          <button (click)="addItem()" aria-label="Add a new item">
+            <span>
+              <mat-icon fontIcon="add" aria-hidden="true"></mat-icon>
+            </span>
+            <span>Add Task</span>
+          </button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

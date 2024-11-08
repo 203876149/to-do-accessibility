@@ -1,0 +1,19 @@
+<div class="box">
+  <h2 mat-dialog-title>Add Task</h2>
+  <form [formGroup]="taskForm" (ngSubmit)="onSave()" aria-label="Task form">
+    <mat-form-field appearance="fill">
+      <mat-label>Title</mat-label>
+      <input matInput formControlName="title" required aria-required="true" aria-label="Task Title" />
+      <mat-error>Title is required</mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Description</mat-label>
+      <textarea matInput formControlName="description" rows="5" aria-label="Task Description"></textarea>
+      <mat-error>Description is required</mat-error>
+    </mat-form-field>
+    <div mat-dialog-actions>
+      <button mat-button type="button" aria-label="Cancel" (click)="onCancel()">Cancel</button>
+      <button mat-button type="submit" aria-label="Save" [disabled]="taskForm.invalid">Save</button>
+    </div>
+  </form>
+</div>
