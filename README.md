@@ -1,27 +1,51 @@
-# ToDo
+# Project Name
+To Do List Application
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.11.
+## Overview
 
-## Development server
+This application was developed with a focus on accessibility, adhering to CPAT (Center for Plaintext Accessibility Testing) guidelines. This document details the steps taken to ensure compliance with accessibility standards and provides instructions for testing the application's accessibility features.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## CPAT Guidelines Implementation
 
-## Code scaffolding
+### 1. Keyboard Accessibility
+- **Tab Navigation**: All interactive elements (buttons, links, and form fields) are accessible via keyboard navigation, allowing users to navigate using `Tab`, `Enter`, and `Arrow` keys.
+- **Focus Indicators**: Visible focus indicators are applied to each interactive element to improve usability for keyboard-only users.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+### 2. Accessible Descriptions and Labels
+- **Form Labels**: All form fields have accessible labels (`aria-label` attributes or angular matrial mat-label) that are programmatically associated with their inputs.
+- **Button Descriptions**: Buttons and icons include descriptive `aria-labels` to clarify their purpose, even when it might not be immediately apparent.
 
-## Build
+### 3. Semantic HTML and ARIA Roles
+- **Semantic Markup**: The application uses semantic HTML elements (e.g., `<header>` , `<button>`) to convey structure.
+- **ARIA Roles and States**: ARIA roles and states (such as `aria-live` and `aria-checked`) communicate element purposes and dynamic changes to assistive technologies.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+### 4. Screen Reader Compatibility
+- **Live Announcements**: An `aria-live` region is implemented to announce important task updates (e.g., adding, completing, or removing tasks) for screen reader users by using cdk LiveAnnouncer directive.
+- **Field States**: Element states like completion or deletion are communicated with `aria-checked` attributes and live announcements.
 
-## Running unit tests
+## Accessibility Testing
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+To verify screen reader and keyboard accessibility, the following testing steps were performed:
 
-## Running end-to-end tests
+### 1. Screen Reader Testing
+- **Tool**: NVDA
+- **Steps**:
+  - Navigate through all interactive elements to confirm each has a clear, descriptive label.
+  - Ensure announcements are made when tasks are added, marked as complete, or removed.
+  - Confirm that the `aria-live` region appropriately announces task updates.
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+### 2. Keyboard Accessibility Testing
+- **Steps**:
+  - Use the `Tab` key to navigate through all elements, ensuring each one is reachable and shows a visible focus indicator.
+  - Test `Enter` and `Space` on buttons and other actionable items to confirm they respond correctly.
+  - Verify that all form controls are accessible and fully functional via keyboard input alone.
 
-## Further help
+## Deployment
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+You can access the live version of this application at the following link:
+
+https://203876149.github.io/to-do-accessibility/
+
+## License
+
+This project is licensed under the MIT License.
